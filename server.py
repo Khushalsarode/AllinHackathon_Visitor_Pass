@@ -31,7 +31,7 @@ app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('MongoUrl')
 db = client['visitor_cards']
 collection = db['cards']
 
