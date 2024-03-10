@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Card Template</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 320px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .company-logo {
+      width: 60px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+
+    .company-name {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .candidate-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      border: 3px solid #007bff;
+      object-fit: cover;
+    }
+
+    .candidate-name {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .visitor-label {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #007bff;
+    }
+
+    .qr-code {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .date, .info {
+      font-size: 14px;
+      margin: 4px 0;
+      color: #666;
+    }
+
+    .info {
+      margin-bottom: 4px; /* Adjust the bottom margin */
+    }
+
+    /* Hover effect for QR code */
+    .qr-code:hover {
+      transform: scale(1.1);
+    }
+
+    .info-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .info-container .item {
+      flex: 0 0 100%;
+      margin-bottom: 8px;
+    }
+
+    @media screen and (min-width: 400px) {
+      .info-container .item {
+        flex: 0 0 50%;
+        margin-right: 8px;
+      }
+    }
+    /* Your existing CSS styles */
+    .download-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .download-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .download-buttons button:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{{ card_data.company_logo_path }}" alt="Company Logo" class="company-logo">
+      <div class="company-name">{{ card_data.company_name }}</div>
+      <div class="info">Pass Number: {{ card_data.pass_id }}</div>
+    </div>
+    <div class="candidate-name">{{ card_data.visitor_name }}</div>
+    <!-- You can include the candidate image here if available -->
+    <div class="visitor-label">VISITOR</div>
+    <div class="info-container">
+      <img src="{{ card_data.qr_code_path }}" alt="QR Code" class="qr-code">
+      <div class="item">
+        <div class="date">Date: {{ card_data.date_generated }}</div>
+        <div class="info">Contact: {{ card_data.contact }}</div>
+        <div class="info">Email: {{ card_data.email }}</div>
+      </div>
+    </div>
+  </div>
+    </body>
+</html>

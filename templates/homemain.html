@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Home Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #777;
+    }
+
+    .login-btn,
+    .logout-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .login-btn:hover,
+    .logout-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="project_logo.png" alt="Project Logo" class="logo">
+    <h1>Professional Project Home Page</h1>
+    <p>A project aimed at providing...</p>
+    <p class="tagline">"Empowering users with innovative solutions."</p>
+    <p>Project Name: Example Project</p>
+    <p>Additional Info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    {% if session %}
+    <h2> Hello</h2>
+
+    <a href="/logout" class="btn btn-primary float-right">Logout</a>
+    {% else %}
+    <a href="/login" class="btn btn-primary float-right">Login</a>
+    {% endif %}
+  </div>
+</body>
+</html>

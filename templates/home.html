@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor's Pass Generate</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: #777;
+    }
+
+    .login-btn,
+    .logout-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .login-btn:hover,
+    .logout-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Visitor's Pass Gen</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+                {% if session %}
+                <a href="/logout" class="btn btn-primary">Logout</a>
+                <a href="/generate_card" class="btn btn-primary">Generate Pass</a>
+                <a href="/records" class="btn btn-primary">Records</a>
+                <h3>Welcome {{session.userinfo.nickname}}!</h3>
+                <!-- <div><pre>{{pretty}}</pre></div> -->
+                {% else %}
+                <a href="/about" class="btn btn-primary">About</a>
+                <a href="/login" class="btn btn-primary">Login</a>
+                {% endif %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <img src="project_logo.png" alt="Project Logo" class="logo">
+        <h1>Professional Project Home Page</h1>
+        <p>A project aimed at providing...</p>
+        <p class="tagline">"Empowering users with innovative solutions."</p>
+        <p>Project Name: Example Project</p>
+        <p>Additional Info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light">
+    <div class="container">
+      <p>&copy; 2024 Example Project</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

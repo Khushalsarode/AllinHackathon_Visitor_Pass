@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-size: 28px;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        td {
+            font-size: 16px;
+        }
+        img {
+            max-width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visitor Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Pass ID</th>
+                <th>Company Name</th>
+                <th>Visitor Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Company Logo</th>
+                <th>QR Code</th>
+                <th>Date Generated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.pass_id }}</td>
+                <td>{{ record.company_name }}</td>
+                <td>{{ record.visitor_name }}</td>
+                <td>{{ record.contact }}</td>
+                <td>{{ record.email }}</td>
+                <td><img src="{{ record.company_logo_path }}" alt="Company Logo"></td>
+                <td><img src="{{ record.qr_code_path }}" alt="QR Code"></td>
+                <td>{{ record.date_generated }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
